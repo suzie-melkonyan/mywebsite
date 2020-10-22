@@ -1,5 +1,5 @@
 # Site settings
-baseURL = "https://suzie-melkonyan.netlify.app/"
+baseURL = "https://suzie-melk.netlify.app/"
 languageCode = "en-us"
 title = "Suzie"
 theme = "forty"
@@ -92,7 +92,7 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "Aliquam"
+      title = "IMDB"
       subtitle = "IMDB movies ratings"
       image = "pic01.jpg"
       url = "blogs/blog1"
