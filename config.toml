@@ -1,7 +1,7 @@
 # Site settings
-baseURL = "http://example.org/"
+baseURL = "https://suzie-melkonyan.netlify.app/"
 languageCode = "en-us"
-title = "Forty"
+title = "Suzie"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -19,8 +19,8 @@ disqusShortname = ""
   # CSS class.
 
   # Provide your metadata here.
-  name = "Your name"
-  description = "Your description"
+  name = "Suzie Melkonyan"
+  description = "Suzie's description"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -37,7 +37,7 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Forty"
+    title = "Suzie"
     subtitle = "By HTML5 Up"
     menu = "Menu"
     # Optional logo as brand stored in img/
@@ -81,8 +81,8 @@ disqusShortname = ""
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Forty"
-    subtitle = "A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
+    title = "Hi, my name is Suzie"
+    subtitle = "Welcome to my Portfolio Website"
     buttonText = "Get Started"
 
 
@@ -93,9 +93,9 @@ disqusShortname = ""
     
     [[params.tiles.showcase]]
       title = "Aliquam"
-      subtitle = "Ipsum Dolor Sit Amet"
+      subtitle = "IMDB movies ratings"
       image = "pic01.jpg"
-      url = "blogs/aliquam"
+      url = "blogs/blog1"
 
     [[params.tiles.showcase]]
       title = "Tempus"
@@ -172,17 +172,17 @@ disqusShortname = ""
     # by copying the corresponding map with frontmatter code.
     [[params.contact.email]]
     title = "Email"
-    email = "example@domain.com"
+    email = "smelkonyan.mfa2021@london.edu"
 
-    [[params.contact.phone]]
-    title = "Phone"
-    phone = "(000) 000-0000 x1234"
+ #   [[params.contact.phone]]
+  #  title = "Phone"
+   # phone = "(000) 000-0000 x1234"
 
     [[params.contact.address]]
     title = "Address"
-    street = "Street"
-    city = "City, ST 00000"
-    country = "Country"
+    street = "Regent's Park"
+    city = "London, NW1 4SA"
+    country = "United Kingdom"
 
   # Footer section
   [params.footer]
@@ -190,29 +190,29 @@ disqusShortname = ""
     copyright = "Company Name"
 
     # Uses font awesome icons
-    [[params.footer.social]]
-      icon = "fa-twitter"
-      url= "https://www.twitter.com"
-      label = "Twitter"
+  #  [[params.footer.social]]
+   #   icon = "fa-twitter"
+    #  url= "https://www.twitter.com"
+     # label = "Twitter"
 
     [[params.footer.social]]
       icon = "fa-facebook"
-      url= "https://www.facebook.com"
+      url= "https://www.facebook.com/syuzi.melkonyan/"
       label = "Facebook"
 
-    [[params.footer.social]]
-      icon = "fa-instagram"
-      url= "https://www.instagram.com"
-      label = "Instagram"
+  #  [[params.footer.social]]
+  #    icon = "fa-instagram"
+  #    url= "https://www.instagram.com"
+  #    label = "Instagram"
     
     [[params.footer.social]]
       icon = "fa-github"
-      url= "https://www.github.com"
+      url= "https://github.com/suzie-melkonyan"
       label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "https://www.linkedin.com"
+      url= "https://www.linkedin.com/in/suziemelkonyan/"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
