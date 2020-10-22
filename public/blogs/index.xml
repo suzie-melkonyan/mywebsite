@@ -1,46 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lifestyle on Suzie</title>
+    <title>Lifestyle on Suzie Melkonyan</title>
     <link>/blogs/</link>
-    <description>Recent content in Lifestyle on Suzie</description>
+    <description>Recent content in Lifestyle on Suzie Melkonyan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 31 Oct 2017 22:27:21 -0500</lastBuildDate><atom:link href="/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Aliquam</title>
-      <link>/blogs/aliquam/</link>
+      <title>Financial analysis of Stock returns</title>
+      <link>/blogs/blog4/</link>
       <pubDate>Tue, 31 Oct 2017 22:42:51 -0500</pubDate>
       
-      <guid>/blogs/aliquam/</guid>
-      <description></description>
+      <guid>/blogs/blog4/</guid>
+      <description>Returns of financial stocks  You may find useful the material on finance data sources.
+ We will use the tidyquant package to download historical data of stock prices, calculate returns, and examine the distribution of returns.
+We must first identify which stocks we want to download data for, and for this we must know their ticker symbol; Apple is known as AAPL, Microsoft as MSFT, McDonald&amp;rsquo;s as MCD, etc. The file nyse.</description>
     </item>
     
     <item>
-      <title>Tempus</title>
-      <link>/blogs/tempus/</link>
+      <title>IMDB analytics</title>
+      <link>/blogs/blog3/</link>
       <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
       
-      <guid>/blogs/tempus/</guid>
-      <description></description>
+      <guid>/blogs/blog3/</guid>
+      <description>Analysis of movies- IMDB dataset We will look at a subset sample of movies, taken from the Kaggle IMDB 5000 movie dataset
+movies &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;movies.csv&amp;quot;))glimpse(movies)Besides the obvious variables of title, genre, director, year, and duration, the rest of the variables are as follows:
+ gross : The gross earnings in the US box office, not adjusted for inflation budget: The movie&amp;rsquo;s budget cast_facebook_likes: the number of facebook likes cast memebrs received votes: the number of people who voted for (or rated) the movie in IMDB reviews: the number of reviews for that movie rating: IMDB average rating  We have to answer the following question</description>
     </item>
     
     <item>
-      <title>Magna</title>
-      <link>/blogs/magna/</link>
+      <title>Airbnb analytics for Brussels</title>
+      <link>/blogs/blog2/</link>
       <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
       
-      <guid>/blogs/magna/</guid>
-      <description></description>
+      <guid>/blogs/blog2/</guid>
+      <description>Analyzing Airbnb dataset for Brussels
+We are going to study on the factors that would affect the accommodation price on Airbnb in Brussels, and make a prediction on the total cost for 2 people staying 4 nights using proper model.
+library(tidyverse) # Load ggplot2, dplyr, and all the other tidyverse packageslibrary(mosaic)library(ggthemes)library(GGally)library(readxl)library(here)library(skimr)library(janitor)library(broom)library(tidyquant)library(infer)library(openintro)library(tidyquant)library(readr)library(kableExtra)library(moderndive)library(car)library(ggfortify)library(huxtable)library(leaflet)First of all, we performed exploratory data analysis to get an overall understanding of the data and examine the data in more detail.</description>
     </item>
     
     <item>
-      <title>IMDB1</title>
+      <title>About me</title>
       <link>/blogs/blog1/</link>
       <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
       
       <guid>/blogs/blog1/</guid>
-      <description>Your code goes here</description>
+      <description>I am Suzie Melkonyan. I am a current Masters in Financial Analysis student at London Business School and am willing to gain further knowledge in finance to have my contribution in the financial services industry and beyond.
+Who am I?
+I am from Armenia, where I received my primary education and graduated from Ayb High School in 2014. Throughout my school years, I developed strong passion for math and sciences, but at the same time became highly interested in the business world and economics.</description>
     </item>
     
   </channel>

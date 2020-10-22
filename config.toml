@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://suzie-melk.netlify.app/"
 languageCode = "en-us"
-title = "Suzie"
+title = "Suzie Melkonyan"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -37,8 +37,8 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Suzie"
-    subtitle = "By HTML5 Up"
+    title = "Suzie Melkonyan"
+  #  subtitle = ""
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -51,13 +51,13 @@ disqusShortname = ""
       name = "Blogs"
       url = "blogs"
 
-    [[params.navigation.links]]
-      name = "Generic Blog"
-      url = "blogs/ipsum"
+   # [[params.navigation.links]]
+    #  name = "Generic Blog"
+     # url = "blogs/ipsum"
 
-    [[params.navigation.links]]
-      name = "Elements"
-      url = "elements.html"
+  #  [[params.navigation.links]]
+  #    name = "Elements"
+  #    url = "elements.html"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -83,7 +83,7 @@ disqusShortname = ""
     # the 'static/img' folder.
     title = "Hi, my name is Suzie"
     subtitle = "Welcome to my Portfolio Website"
-    buttonText = "Get Started"
+    buttonText = "Learn more"
 
 
   # Tiles Section
@@ -92,40 +92,40 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "IMDB"
-      subtitle = "IMDB movies ratings"
-      image = "pic01.jpg"
+      title = "About me"
+    #  subtitle = "IMDB movies ratings"
+      image = "pic02.jpg"
       url = "blogs/blog1"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
+      title = "IMDB movies analysis"
+    #  subtitle = "Feugiat Amet Tempus"
       image = "pic02.jpg"
-      url = "blogs/tempus"
+      url = "blogs/blog3"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
+      title = "Airbnb analytics for Brussels"
+   #   subtitle = "Lorem Etiam Nullam"
       image = "pic03.jpg"
-      url = "blogs/magna"
+      url = "blogs/blog2"
 
-    [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+   [[params.tiles.showcase]]
+     title = "Financial analysis of stock returns"
+    # subtitle = "Nisl Sed Aliquam"
+     image = "pic04.jpg"
+     url = "blogs/blog4"
 
-    [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
-      url = "blogs/ipsum"
+  # [[params.tiles.showcase]]
+  #    title = "Consequat"
+  #   subtitle = "Ipsum Dolor Sit Amet"
+  #    image = "pic05.jpg"
+  #    url = "blogs/ipsum"
 
-    [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
-      url = "blogs/ipsum"
+  #  [[params.tiles.showcase]]
+  #    title = "Etiam"
+  #    subtitle = "Feugiat Amet Tempus"
+  #    image = "pic06.jpg"
+  #    url = "blogs/ipsum"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -136,16 +136,16 @@ disqusShortname = ""
     # To add more blogs just copy and paste the code.
 
   # Section Type Two
-  [params.two]
-    enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
-    url = "blogs"
+#  [params.two]
+ #   enable = true
+  #  title = "Massa libero"
+  #  subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
+  #  Mauris aliquet magna magna sed nunc rhoncus pharetra. 
+  #  Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
+  #  Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
+  #  Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
+  #  buttonText = "Get Started"
+  #  url = "blogs"
 
 
   # Contact section
@@ -174,9 +174,9 @@ disqusShortname = ""
     title = "Email"
     email = "smelkonyan.mfa2021@london.edu"
 
- #   [[params.contact.phone]]
-  #  title = "Phone"
-   # phone = "(000) 000-0000 x1234"
+   [[params.contact.phone]]
+   title = "Phone"
+    phone = "Available upon request"
 
     [[params.contact.address]]
     title = "Address"
@@ -187,7 +187,7 @@ disqusShortname = ""
   # Footer section
   [params.footer]
     enable = true
-    copyright = "Company Name"
+    copyright = "Suzie Melkonyan 2020"
 
     # Uses font awesome icons
   #  [[params.footer.social]]
@@ -215,7 +215,7 @@ disqusShortname = ""
       url= "https://www.linkedin.com/in/suziemelkonyan/"
       label = "LinkedIn"
 
-    [[params.footer.quicklinks]]
-      text = "Design: "
-      url= "https://www.html5up.net"
-      alt = "HTML5 UP"
+  #  [[params.footer.quicklinks]]
+  #   text = "Design: "
+  #    url= "https://www.html5up.net"
+  #    alt = "HTML5 UP"

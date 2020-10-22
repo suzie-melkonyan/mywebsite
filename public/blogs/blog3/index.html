@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Suzie&#39;s description">
+	<meta name="author" content="Suzie Melkonyan">
+	<meta name="generator" content="Hugo 0.76.5" />
+	<title>IMDB analytics &middot; Suzie Melkonyan</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Suzie Melkonyan</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs">Blogs</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">Get Started</a></li>
+            
+            
+                <li><a href="/" class="button fit">Log In</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>IMDB analytics</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/blogs/pic08.jpg" alt="" /></span>
+                            
+                            <h1 id="analysis-of-movies--imdb-dataset">Analysis of movies- IMDB dataset</h1>
+<p>We will look at a subset sample of movies, taken from the <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">Kaggle IMDB 5000 movie dataset</a></p>
+<pre><code class="language-{r,load_movies," data-lang="{r,load_movies,">
+movies &lt;- read_csv(here::here(&quot;data&quot;, &quot;movies.csv&quot;))
+glimpse(movies)
+
+</code></pre><p>Besides the obvious variables of <code>title</code>, <code>genre</code>, <code>director</code>, <code>year</code>, and <code>duration</code>, the rest of the variables are as follows:</p>
+<ul>
+<li><code>gross</code> : The gross earnings in the US box office, not adjusted for inflation</li>
+<li><code>budget</code>: The movie&rsquo;s budget</li>
+<li><code>cast_facebook_likes</code>: the number of facebook likes cast memebrs received</li>
+<li><code>votes</code>: the number of people who voted for (or rated) the movie in IMDB</li>
+<li><code>reviews</code>: the number of reviews for that movie</li>
+<li><code>rating</code>: IMDB average rating</li>
+</ul>
+<p>We have to answer the following question</p>
+<ul>
+<li>Are there any missing values (NAs)? Are all entries distinct or are there duplicate entries?</li>
+</ul>
+<pre><code class="language-{r}" data-lang="{r}">skim(movies)
+##
+
+distinct(movies)
+##  
+
+</code></pre><p>We don&rsquo;t need to worry about missing values, and we don&rsquo;t have any duplicates as well.</p>
+<ul>
+<li>We produce a table with the count of movies by genre, ranked in descending order</li>
+</ul>
+<pre><code class="language-{r}" data-lang="{r}">
+
+  x&lt;-as.data.frame(sort(table(movies$genre), TRUE))
+rename(x, &quot;Genre&quot;=Var1)
+
+  
+</code></pre><ul>
+<li>We produce a table with the average gross earning and budget (<code>gross</code> and <code>budget</code>) by genre. Calculate a variable <code>return_on_budget</code> which shows how many $ did a movie make at the box office for each $ of its budget. Ranked genres by this <code>return_on_budget</code> in descending order</li>
+</ul>
+<pre><code class="language-{r}" data-lang="{r}">
+movie_gross&lt;- movies %&gt;%
+    group_by(genre) %&gt;%
+    summarise(average_gross_earning = mean(gross),
+           average_budget = mean (budget)) %&gt;%
+  mutate(return_on_budget = average_gross_earning/average_budget ) %&gt;%
+  arrange(desc(return_on_budget)) 
+
+movie_gross
+</code></pre><ul>
+<li>We Produce a table that shows the top 15 directors who have created the highest gross revenue in the box office. Don&rsquo;t just show the total gross amount, but also the mean, median, and standard deviation per director.</li>
+</ul>
+<pre><code class="language-{r}" data-lang="{r}">
+director_gross &lt;- movies %&gt;%
+  group_by(director) %&gt;%
+  summarise(total_gross = sum(gross, na.rm=TRUE),
+            mean_gross=mean(gross, na.rm=TRUE),
+            median_gross=median(gross,na.rm=TRUE),
+            sd_gross=sd(gross, na.rm=TRUE),
+            count = n()
+            ) %&gt;%
+  arrange(desc(total_gross))
+top_15_directors &lt;- head(director_gross,15)
+
+top_15_directors
+</code></pre><ul>
+<li>Finally, ratings! We produce a table that describes how ratings are distributed by genre. We don&rsquo;t want just the mean, but also, min, max, median, SD and some kind of a histogram or density graph that visually shows how ratings are distributed.</li>
+</ul>
+<pre><code class="language-{r," data-lang="{r,">rating_genre&lt;- movies %&gt;% 
+               group_by(genre) %&gt;% 
+               summarise(mean_rating = mean(rating), 
+                         med_rating = median(rating), 
+                         min_rating = min(rating), 
+                         max_rating = max(rating), 
+                         sd_rating = sd(rating)) 
+rating_genre
+
+movies %&gt;% 
+  ggplot(aes(x=rating))+
+  geom_histogram()+
+  facet_wrap(~genre, scales = &quot;free_y&quot;)+
+  labs(title = &quot;Ratings Distribution by genre&quot;,
+       x=&quot;Ratings&quot;,
+       y=&quot;Counts&quot;)+
+  NULL
+
+</code></pre><h2 id="use-ggplot-to-answer-the-following">Use <code>ggplot</code> to answer the following</h2>
+<ul>
+<li>Examine the relationship between <code>gross</code> and <code>cast_facebook_likes</code>. Produce a scatterplot and write one sentence discussing whether the number of facebook likes that the cast has received is likely to be a good predictor of how much money a movie will make at the box office. What variable are you going to map to the Y- and X- axes?</li>
+</ul>
+<pre><code class="language-{r," data-lang="{r,">movies%&gt;%
+  ggplot(aes(x=cast_facebook_likes, y=gross)) +
+  geom_point(alpha = 0.5) + 
+  xlim(0,100000) + 
+  geom_smooth(method=&quot;lm&quot;) + 
+  labs(title =&quot;Relationship between facebook likes and box office revenue&quot;,
+       x=&quot;Facebook likes&quot;, 
+       y=&quot;Box office revenue&quot;)+
+  NULL
+  
+#find correlation:
+cor( movies$gross,movies$cast_facebook_likes)
+
+
+</code></pre><p>While there is a <strong>positive relationship</strong> between cast facebook likes and box office revenue, <strong>the correlation of 0.213 is too small for cast facebook likes to be a good predictor of box office revenue</strong>.</p>
+<ul>
+<li>Examine the relationship between <code>gross</code> and <code>budget</code>. Produce a scatterplot and write one sentence discussing whether budget is likely to be a good predictor of how much money a movie will make at the box office.</li>
+</ul>
+<pre><code class="language-{r," data-lang="{r,">movies%&gt;%
+  ggplot(aes(x=budget, y=gross)) +
+  geom_point(alpha = 0.5) + 
+  xlim(0,20000000)+ 
+  ylim(0,10000000)+ 
+  geom_smooth(method=&quot;lm&quot;)+
+  NULL
+
+#find correlation
+cor(movies$budget, movies$gross)
+</code></pre><p>There is a <strong>positive correlation</strong> between movie budget and box office revenue. Since the correlation is 0.641, <strong>movie budget is not a strong predictor for box office revenue but is better than cast facebook likes</strong>.</p>
+<ul>
+<li>Examine the relationship between <code>gross</code> and <code>rating</code>. Produce a scatterplot, faceted by <code>genre</code> and discuss whether IMDB ratings are likely to be a good predictor of how much money a movie will make at the box office. Is there anything strange in this dataset?</li>
+</ul>
+<pre><code class="language-{r," data-lang="{r,">library(plyr)
+correlation &lt;- ddply(movies, .(genre), 
+              summarise, 
+              cor = round(cor(rating, gross), 2))
+
+movies%&gt;%
+  ggplot(aes(x=rating, y=gross)) +
+  geom_point(alpha = 0.3) + 
+  facet_wrap(~genre, scales = &quot;free_y&quot;) +
+  geom_smooth(method =&quot;lm&quot;) + 
+  geom_text(data = correlation, aes(label = paste(&quot;r=&quot;, cor, sep=&quot;&quot;)), x = 1, y = -0.25)+
+  NULL
+
+#find correlation:
+cor(movies$rating,movies$gross)
+</code></pre><p>Overall, while there is a <strong>positive relationship</strong> between rating and box office revenue, <strong>the correlation of 0.269 is too small for rating to be a good predictor of box office revenue</strong>.</p>
+<p>When we examine the relationship between rating and box office revenue per genre, <strong>there is not any strong correlation</strong>. The strange thing is for <strong>Documentaries and Sci-fi</strong>, there is <strong>a negative relationship</strong> between rating and genre. Thus, we need to examine the reason behind such negative relationship.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.facebook.com/syuzi.melkonyan/" class="icon alt fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                
+                    <li><a href="https://github.com/suzie-melkonyan" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/suziemelkonyan/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Suzie Melkonyan 2020</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>
