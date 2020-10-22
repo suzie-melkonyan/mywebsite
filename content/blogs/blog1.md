@@ -3,12 +3,12 @@ categories:
 - ""
 - ""
 date: "2017-10-31T21:28:43-05:00"
-description: ""
+description: "IMDB"
 draft: false
 image: pic10.jpg
 keywords: ""
-slug: ipsum
-title: Ipsum
+slug: blog1
+title: IMDB1
 ---
 
 Your code goes here
